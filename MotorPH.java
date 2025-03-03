@@ -23,7 +23,7 @@ public class MotorPH {
         System.out.println("Salary: ");
         System.out.println("Deductions: ");
 
-        handleMenuOptions(scanner);
+        mainMenuOptions(scanner);
     }
 
     public void overallComputation(Scanner scanner) { // overall computation page
@@ -37,7 +37,7 @@ public class MotorPH {
         System.out.println("Pag-Ibig: ");
         System.out.println("Income Tax: ");
 
-        handleMenuOptions(scanner);
+        mainMenuOptions(scanner);
     }
 
     public void mainMenu(Scanner scanner) {
@@ -69,7 +69,7 @@ public class MotorPH {
         }
     }
 
-    private void handleMenuOptions(Scanner scanner) {
+    private void mainMenuOptions(Scanner scanner) {
         while (true) {
             System.out.println("\nChoose an option:");
             System.out.println("1. Return to Main Menu");
@@ -88,7 +88,7 @@ public class MotorPH {
                 return; // go back to main menu
             } else if (choice == 2) {
                 System.out.println("Exiting program. Goodbye!");
-                System.exit(0);
+                System.exit(0); // exits the program
             } else {
                 System.out.println("Invalid. Please enter 1 or 2.");
             }
@@ -105,13 +105,13 @@ public class MotorPH {
             System.out.print("Enter your Employee ID: ");
             if (!scanner.hasNextInt()) { // checks if input is an integer
                 System.out.println("Invalid. Please enter a valid 5-digit Employee ID.");
-                scanner.next(); // checks if input is a letter 
+                scanner.next(); // checks if input is invalid or a letter 
                 continue; // continues the loop
             }
 
             employeeNumber = scanner.nextInt();
 
-            if (employeeNumber >= 10000 && employeeNumber <= 10034) {
+            if (employeeNumber >= 10001 && employeeNumber <= 10034) { // limits input range 
                 break;
             } else {
                 System.out.println("Invalid. Employee ID must be exactly 5 digits.");
@@ -120,7 +120,7 @@ public class MotorPH {
 
         System.out.println("Hello, Employee #" + employeeNumber + "!\n");
 
-        motorPH.mainMenu(scanner);
+        motorPH.mainMenu(scanner); // redirects to main menu 
 
         scanner.close();
     }
